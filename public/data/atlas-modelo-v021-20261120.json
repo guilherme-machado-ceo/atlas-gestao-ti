@@ -1,0 +1,3424 @@
+{
+  "meta": {
+    "nome": "Atlas de Gestão de TI em camadas",
+    "versao_modelo": "0.2.1",
+    "data": "2026-11-20",
+    "historico": [
+      {
+        "versao": "0.1.0",
+        "data": "2026-11-20",
+        "mudanca": "primeira geração"
+      },
+      {
+        "versao": "0.2.0",
+        "data": "2026-11-20",
+        "mudanca": "fonte por item com termo original; referências identificadas; Soberania fora das interseções; categorias decididas"
+      },
+      {
+        "versao": "0.2.1",
+        "data": "2026-11-20",
+        "mudanca": "localizador fonte_local (slide e cartão do carrossel) em subáreas e itens; reconciliação 0.1.0→0.2.0 registrada em meta.reconciliacao"
+      }
+    ],
+    "autor": "Guilherme Gonçalves Machado",
+    "gerado_de": "conteudo.py (fonte única do carrossel e dos mapas)",
+    "precedencia": [
+      "livro, Parte I (19/11/2026)",
+      "plano editorial, versão de 19/11/2026 (registro D.8)",
+      "carrossel e mapas revisados (17/11/2026)",
+      "protocolo v.04 (relações e interseções)"
+    ],
+    "status_categoria": {
+      "documentada": "categoria registrada no plano editorial",
+      "decidida": "definida na revisão cruzada de 20/11/2026; o autor pode revogar"
+    },
+    "regra_fonte": "fonte = documento autoral que registra o item na taxonomia, com o termo original em fonte_termo; categoria_fonte sustenta a classificação; fontes externas de definição serão acrescentadas na redação dos capítulos",
+    "regra_soberania": "Soberania é lente: nunca aparece em interseções; associações com ela usam aplica-se-a (posições) ou destaque_soberania (itens)",
+    "reconciliacao": [
+      {
+        "versao": "0.1.0→0.2.0",
+        "relacao": "intersecta sob↔af",
+        "acao": "convertida em ênfase da relação aplica-se-a sob→af",
+        "fonte": "ref-protocolo-v04"
+      },
+      {
+        "versao": "0.1.0→0.2.0",
+        "relacao": "intersecta sob↔dad",
+        "acao": "convertida em ênfase da relação aplica-se-a sob→dad",
+        "fonte": "ref-protocolo-v04"
+      },
+      {
+        "versao": "0.1.0→0.2.0",
+        "relacao": "interseções de itens com sob (IaaS, SaaS, nuvens pública, privada e híbrida)",
+        "acao": "convertidas em destaque_soberania",
+        "fonte": "ref-plano-20261119"
+      }
+    ],
+    "regra_subarea": "subárea é agrupamento editorial; sua categoria indica a natureza predominante do conjunto e não se transfere aos itens",
+    "restricoes": [
+      "usar apenas a taxonomia autoral; não usar o mapa original nem sua reclassificação interna",
+      "empresas, funções profissionais e filtro por categoria ficam fora da primeira versão"
+    ]
+  },
+  "legenda": [
+    {
+      "grupo": "Conhecimento e referência",
+      "categorias": [
+        {
+          "nome": "domínio",
+          "definicao": "Campo de conhecimento ou de atuação"
+        },
+        {
+          "nome": "corpo de conhecimento",
+          "definicao": "Compêndio de referência de uma profissão"
+        },
+        {
+          "nome": "framework",
+          "definicao": "Estrutura de referência que organiza práticas"
+        },
+        {
+          "nome": "método",
+          "definicao": "Forma prescrita de conduzir um trabalho"
+        },
+        {
+          "nome": "modelo de maturidade",
+          "definicao": "Escala de avaliação da capacidade de processos"
+        }
+      ]
+    },
+    {
+      "grupo": "Obrigação e requisito",
+      "categorias": [
+        {
+          "nome": "norma",
+          "definicao": "Documento de organismo de normalização"
+        },
+        {
+          "nome": "regulação",
+          "definicao": "Lei ou ato normativo estatal"
+        }
+      ]
+    },
+    {
+      "grupo": "Atividade e capacidade",
+      "categorias": [
+        {
+          "nome": "prática",
+          "definicao": "Atividade organizada e recorrente"
+        },
+        {
+          "nome": "capacidade organizacional",
+          "definicao": "Aptidão que combina pessoas, processos e tecnologia"
+        },
+        {
+          "nome": "estrutura organizacional",
+          "definicao": "Unidade dentro da organização"
+        }
+      ]
+    },
+    {
+      "grupo": "Arquitetura e técnica",
+      "categorias": [
+        {
+          "nome": "estilo arquitetural",
+          "definicao": "Padrão de organização de software"
+        },
+        {
+          "nome": "interface",
+          "definicao": "Contrato de interação entre sistemas"
+        },
+        {
+          "nome": "padrão técnico",
+          "definicao": "Especificação de protocolo ou interface"
+        },
+        {
+          "nome": "formato",
+          "definicao": "Forma de representar dados"
+        },
+        {
+          "nome": "modelo de armazenamento de dados",
+          "definicao": "Forma de organizar dados para análise"
+        },
+        {
+          "nome": "tecnologia",
+          "definicao": "Mecanismo, equipamento ou classe de ferramenta"
+        }
+      ]
+    },
+    {
+      "grupo": "Mercado e contratação",
+      "categorias": [
+        {
+          "nome": "produto",
+          "definicao": "Oferta comercial identificada por marca"
+        },
+        {
+          "nome": "provedor",
+          "definicao": "Organização que fornece um portfólio de serviços"
+        },
+        {
+          "nome": "categoria de software",
+          "definicao": "Classe de sistema aplicativo"
+        },
+        {
+          "nome": "modelo de serviço",
+          "definicao": "Forma de contratar ou terceirizar capacidades"
+        },
+        {
+          "nome": "modelo de implantação",
+          "definicao": "Forma de hospedar a capacidade contratada"
+        }
+      ]
+    },
+    {
+      "grupo": "Gestão e medida",
+      "categorias": [
+        {
+          "nome": "indicador",
+          "definicao": "Medida de desempenho"
+        },
+        {
+          "nome": "conceito financeiro",
+          "definicao": "Categoria contábil ou orçamentária"
+        },
+        {
+          "nome": "canal digital",
+          "definicao": "Meio de presença ou comunicação"
+        }
+      ]
+    },
+    {
+      "grupo": "Residual",
+      "categorias": [
+        {
+          "nome": "indeterminada",
+          "definicao": "Item cuja natureza não pôde ser estabelecida"
+        }
+      ]
+    }
+  ],
+  "referencias": [
+    {
+      "id": "ref-carrossel-20261117",
+      "titulo": "Gestão de TI em camadas: carrossel e mapa autoral revisado",
+      "autor": "Guilherme Gonçalves Machado",
+      "instituicao": "Hubstry",
+      "versao": "17/11/2026, revisado em 19/11/2026",
+      "ano": 2026,
+      "arquivos": [
+        "carrossel-gestao-ti-linkedin-20261117.pdf",
+        "mapa-autoral-gestao-ti-20261117-revisado.mmd"
+      ],
+      "url": null
+    },
+    {
+      "id": "ref-livro-parte1",
+      "titulo": "Gestão de TI em camadas, Parte I: Método",
+      "autor": "Guilherme Gonçalves Machado",
+      "instituicao": "Hubstry",
+      "versao": "19/11/2026",
+      "ano": 2026,
+      "url": "https://docs.google.com/document/d/1cBoGhnPAJuVDLE37MSKuisb9jIpsHZ2e8q2NoksOUkE/edit"
+    },
+    {
+      "id": "ref-plano-20261119",
+      "titulo": "Plano editorial do ebook Gestão de TI em camadas",
+      "autor": "Guilherme Gonçalves Machado",
+      "instituicao": "Hubstry",
+      "versao": "19/11/2026 (registro D.8)",
+      "ano": 2026,
+      "url": null,
+      "acesso": "interno"
+    },
+    {
+      "id": "ref-revisao-20261120",
+      "titulo": "Decisões de classificação do Atlas (revisão cruzada Claude e GPT, aprovada pelo autor)",
+      "autor": "Guilherme Gonçalves Machado",
+      "instituicao": "Hubstry",
+      "versao": "20/11/2026",
+      "ano": 2026,
+      "url": null,
+      "acesso": "interno",
+      "natureza": "decisão do autor, revogável"
+    },
+    {
+      "id": "ref-protocolo-v04",
+      "titulo": "Hubstry Protocolo de Tecnologia Geral",
+      "autor": "Guilherme Gonçalves Machado",
+      "instituicao": "Hubstry",
+      "versao": "v.04",
+      "ano": 2026,
+      "licenca": "CC BY 4.0",
+      "url": "https://docs.google.com/document/d/1DCtukGBlKY6kPcxXjo37q2H1aTFxOE9vv1Ivc7mEAHE/edit"
+    }
+  ],
+  "posicoes": [
+    {
+      "id": "seg",
+      "nome": "Segurança por Design",
+      "tipo": "envelope",
+      "descritor": "envelope",
+      "descricao": "Envelope que governa todos os domínios tecnológicos do protocolo",
+      "fonte": "ref-livro-parte1",
+      "no_protocolo": true
+    },
+    {
+      "id": "dad",
+      "nome": "Dados",
+      "tipo": "camada transversal de valor",
+      "descritor": "camada de valor",
+      "descricao": "Camada que atravessa os três pilares; os dados nascem nos domínios, circulam entre eles e são governados pelo envelope",
+      "fonte": "ref-livro-parte1",
+      "no_protocolo": true
+    },
+    {
+      "id": "qua",
+      "nome": "Pilar Quântico",
+      "tipo": "pilar de domínio",
+      "descritor": "tecnologias quânticas",
+      "descricao": "Tecnologias que usam fenômenos quânticos para computar, comunicar e medir",
+      "fonte": "ref-livro-parte1",
+      "no_protocolo": true
+    },
+    {
+      "id": "af",
+      "nome": "Pilar Analógico-Físico",
+      "tipo": "pilar de domínio",
+      "descritor": "infraestrutura e operações",
+      "descricao": "Infraestrutura e operações: onde a tecnologia roda, se conecta e é mantida em funcionamento",
+      "fonte": "ref-livro-parte1",
+      "no_protocolo": true
+    },
+    {
+      "id": "dig",
+      "nome": "Pilar Digital",
+      "tipo": "pilar de domínio",
+      "descritor": "desenvolvimento e produto",
+      "descricao": "Desenvolvimento e produto: o software que entrega valor a quem usa a tecnologia",
+      "fonte": "ref-livro-parte1",
+      "no_protocolo": true
+    },
+    {
+      "id": "ctx",
+      "nome": "Contexto Organizacional",
+      "tipo": "eixo externo",
+      "descritor": "eixo externo",
+      "descricao": "Extensão do autor, fora do protocolo: a organização que contrata, financia, mede e opera a tecnologia",
+      "fonte": "ref-livro-parte1",
+      "no_protocolo": false
+    },
+    {
+      "id": "sob",
+      "nome": "Soberania Digital",
+      "tipo": "lente transversal",
+      "descritor": "lente transversal",
+      "descricao": "Capacidade de compreender e exercer controle jurídico, operacional e tecnológico sobre dados, infraestruturas e dependências de fornecedores",
+      "fonte": "ref-livro-parte1",
+      "no_protocolo": true
+    }
+  ],
+  "subareas": [
+    {
+      "id": "normas-legislacao-e-conformidade",
+      "nome": "Normas, legislação e conformidade",
+      "posicao": "seg",
+      "detalhe": "norma: ISO/IEC 27001. Leis: LGPD, ECA Digital (quando aplicável)",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Normas, legislação e conformidade"
+      }
+    },
+    {
+      "id": "identidade-e-acesso",
+      "nome": "Identidade e acesso",
+      "posicao": "seg",
+      "detalhe": "IAM, PAM, CIEM",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Identidade e acesso"
+      }
+    },
+    {
+      "id": "arquitetura-zero-trust",
+      "nome": "Arquitetura Zero Trust",
+      "posicao": "seg",
+      "detalhe": "nenhuma confiança implícita em acessos",
+      "categoria": "estilo arquitetural",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Arquitetura Zero Trust"
+      }
+    },
+    {
+      "id": "controles-de-protecao",
+      "nome": "Controles de proteção",
+      "posicao": "seg",
+      "detalhe": "firewall, proxy, antimalware",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Controles de proteção"
+      }
+    },
+    {
+      "id": "operacao-de-seguranca",
+      "nome": "Operação de segurança",
+      "posicao": "seg",
+      "detalhe": "SOC, resposta a incidentes",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Operação de segurança"
+      }
+    },
+    {
+      "id": "resiliencia",
+      "nome": "Resiliência",
+      "posicao": "seg",
+      "detalhe": "backup, continuidade, recuperação de desastres",
+      "categoria": "capacidade organizacional",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Resiliência"
+      }
+    },
+    {
+      "id": "risco-seguranca-e-conformidade-de-ia",
+      "nome": "Risco, segurança e conformidade de IA",
+      "posicao": "seg",
+      "detalhe": null,
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [
+        {
+          "posicao": "dig",
+          "fonte": "ref-protocolo-v04"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Risco, segurança e conformidade de IA"
+      }
+    },
+    {
+      "id": "terceiros",
+      "nome": "Terceiros",
+      "posicao": "seg",
+      "detalhe": "fornecedores e cadeia de software",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Terceiros"
+      }
+    },
+    {
+      "id": "transicao-criptografica",
+      "nome": "Transição criptográfica",
+      "posicao": "seg",
+      "detalhe": "criptografia pós-quântica (FIPS 203, 204, 205), agilidade e inventário criptográficos",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [
+        {
+          "posicao": "qua",
+          "fonte": "ref-livro-parte1"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Transição criptográfica"
+      }
+    },
+    {
+      "id": "governanca-de-dados",
+      "nome": "Governança de dados",
+      "posicao": "dad",
+      "detalhe": "DAMA-DMBOK, catálogo, linhagem",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Governança de dados"
+      }
+    },
+    {
+      "id": "arquitetura-de-dados",
+      "nome": "Arquitetura de dados",
+      "posicao": "dad",
+      "detalhe": "modelagem e integração",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Arquitetura de dados"
+      }
+    },
+    {
+      "id": "armazenamento-analitico",
+      "nome": "Armazenamento analítico",
+      "posicao": "dad",
+      "detalhe": "data lake, data warehouse, lakehouse",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Armazenamento analítico"
+      }
+    },
+    {
+      "id": "analise",
+      "nome": "Análise",
+      "posicao": "dad",
+      "detalhe": "BI, analytics, Big Data",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Análise"
+      }
+    },
+    {
+      "id": "operacao-de-modelos",
+      "nome": "Operação de modelos",
+      "posicao": "dad",
+      "detalhe": "MLOps, LLMOps, em interseção com IA aplicada",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [
+        {
+          "posicao": "dig",
+          "fonte": "ref-livro-parte1"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Operação de modelos"
+      }
+    },
+    {
+      "id": "computacao-quantica",
+      "nome": "Computação quântica",
+      "posicao": "qua",
+      "detalhe": "hardware, acesso em nuvem, algoritmos, computação híbrida quântico-clássica, simulação",
+      "categoria": "domínio",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Computação quântica"
+      }
+    },
+    {
+      "id": "comunicacao-quantica",
+      "nome": "Comunicação quântica",
+      "posicao": "qua",
+      "detalhe": "QKD, redes quânticas; geração quântica de números aleatórios como componente habilitador",
+      "categoria": "domínio",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Comunicação quântica"
+      }
+    },
+    {
+      "id": "sensoriamento-e-metrologia-quantica",
+      "nome": "Sensoriamento e metrologia quântica",
+      "posicao": "qua",
+      "detalhe": "relógios atômicos, magnetômetros, gravímetros, navegação",
+      "categoria": "domínio",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Sensoriamento e metrologia quântica"
+      }
+    },
+    {
+      "id": "redes-e-conectividade",
+      "nome": "Redes e conectividade",
+      "posicao": "af",
+      "detalhe": "LAN, SD-WAN, MPLS, VPN, QoS",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Redes e conectividade"
+      }
+    },
+    {
+      "id": "servidores-e-virtualizacao",
+      "nome": "Servidores e virtualização",
+      "posicao": "af",
+      "detalhe": null,
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Servidores e virtualização"
+      }
+    },
+    {
+      "id": "nuvem",
+      "nome": "Nuvem",
+      "posicao": "af",
+      "detalhe": "serviço: IaaS. Implantação: pública, privada, híbrida",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Nuvem"
+      }
+    },
+    {
+      "id": "conteineres-e-orquestracao",
+      "nome": "Contêineres e orquestração",
+      "posicao": "af",
+      "detalhe": null,
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Contêineres e orquestração"
+      }
+    },
+    {
+      "id": "infraestrutura-como-codigo",
+      "nome": "Infraestrutura como código",
+      "posicao": "af",
+      "detalhe": null,
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Infraestrutura como código"
+      }
+    },
+    {
+      "id": "comunicacoes-unificadas",
+      "nome": "Comunicações unificadas",
+      "posicao": "af",
+      "detalhe": "VoIP, SIP, PABX",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Comunicações unificadas"
+      }
+    },
+    {
+      "id": "iot-e-tecnologia-operacional",
+      "nome": "IoT e tecnologia operacional",
+      "posicao": "af",
+      "detalhe": null,
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [
+        {
+          "posicao": "dad",
+          "fonte": "ref-protocolo-v04"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "IoT e tecnologia operacional"
+      }
+    },
+    {
+      "id": "computacao-de-borda",
+      "nome": "Computação de borda",
+      "posicao": "af",
+      "detalhe": null,
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [
+        {
+          "posicao": "qua",
+          "fonte": "ref-protocolo-v04"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Computação de borda"
+      }
+    },
+    {
+      "id": "operacao",
+      "nome": "Operação",
+      "posicao": "af",
+      "detalhe": "DevOps, SRE, observabilidade, NOC",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Operação"
+      }
+    },
+    {
+      "id": "arquitetura-e-desenvolvimento",
+      "nome": "Arquitetura e desenvolvimento",
+      "posicao": "dig",
+      "detalhe": "microsserviços, componentes, SOA",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Arquitetura e desenvolvimento"
+      }
+    },
+    {
+      "id": "apis-e-integracao",
+      "nome": "APIs e integração",
+      "posicao": "dig",
+      "detalhe": "REST, SOAP, GraphQL, mensageria",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "APIs e integração"
+      }
+    },
+    {
+      "id": "plataformas",
+      "nome": "Plataformas",
+      "posicao": "dig",
+      "detalhe": "PaaS, SaaS, baixo código",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Plataformas"
+      }
+    },
+    {
+      "id": "ia-aplicada",
+      "nome": "IA aplicada",
+      "posicao": "dig",
+      "detalhe": "machine learning, NLP, IA generativa, agentes",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "IA aplicada"
+      }
+    },
+    {
+      "id": "sistemas-corporativos",
+      "nome": "Sistemas corporativos",
+      "posicao": "dig",
+      "detalhe": "ERP, CRM, HCM, WMS, TMS, MES",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Sistemas corporativos"
+      }
+    },
+    {
+      "id": "presenca-digital",
+      "nome": "Presença digital",
+      "posicao": "dig",
+      "detalhe": "sites, intranet",
+      "categoria": "canal digital",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Presença digital"
+      }
+    },
+    {
+      "id": "qualidade-e-experiencia-do-usuario",
+      "nome": "Qualidade e experiência do usuário",
+      "posicao": "dig",
+      "detalhe": null,
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Qualidade e experiência do usuário"
+      }
+    },
+    {
+      "id": "governanca-de-ti",
+      "nome": "Governança de TI",
+      "posicao": "ctx",
+      "detalhe": "COBIT",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Governança de TI"
+      }
+    },
+    {
+      "id": "gestao-de-servicos",
+      "nome": "Gestão de serviços",
+      "posicao": "ctx",
+      "detalhe": "ITIL, service desk",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Gestão de serviços"
+      }
+    },
+    {
+      "id": "projetos-e-portfolio",
+      "nome": "Projetos e portfólio",
+      "posicao": "ctx",
+      "detalhe": "PMBOK, PRINCE2, Scrum, Kanban",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Projetos e portfólio"
+      }
+    },
+    {
+      "id": "processos-e-desempenho",
+      "nome": "Processos e desempenho",
+      "posicao": "ctx",
+      "detalhe": "BPM, KPI, OKR, CMMI",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Processos e desempenho"
+      }
+    },
+    {
+      "id": "financas-e-fornecedores",
+      "nome": "Finanças e fornecedores",
+      "posicao": "ctx",
+      "detalhe": "Capex, Opex, contratos, BPO, FinOps",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Finanças e fornecedores"
+      }
+    },
+    {
+      "id": "ativos",
+      "nome": "Ativos",
+      "posicao": "ctx",
+      "detalhe": "ITAM, CMDB",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Ativos"
+      }
+    },
+    {
+      "id": "pessoas-e-competencias",
+      "nome": "Pessoas e competências",
+      "posicao": "ctx",
+      "detalhe": null,
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Pessoas e competências"
+      }
+    },
+    {
+      "id": "sustentabilidade-em-ti",
+      "nome": "Sustentabilidade em TI",
+      "posicao": "ctx",
+      "detalhe": null,
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Sustentabilidade em TI"
+      }
+    }
+  ],
+  "itens": [
+    {
+      "id": "i-iso-iec-27001-2022",
+      "nome": "ISO/IEC 27001:2022",
+      "extenso": "International Organization for Standardization / International Electrotechnical Commission 27001, com a Emenda 1:2024",
+      "subarea": "normas-legislacao-e-conformidade",
+      "posicao_principal": "seg",
+      "categoria": "norma",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "ctx",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "ISO/IEC 27001",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Normas, legislação e conformidade",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "fonte_complementar": "ref-livro-parte1"
+    },
+    {
+      "id": "i-lgpd",
+      "nome": "LGPD",
+      "extenso": "Lei Geral de Proteção de Dados Pessoais",
+      "subarea": "normas-legislacao-e-conformidade",
+      "posicao_principal": "seg",
+      "categoria": "regulação",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dad",
+          "fonte": "ref-plano-20261119"
+        },
+        {
+          "posicao": "ctx",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "LGPD",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Normas, legislação e conformidade",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-eca-digital",
+      "nome": "ECA Digital",
+      "extenso": "Lei nº 15.211/2025",
+      "subarea": "normas-legislacao-e-conformidade",
+      "posicao_principal": "seg",
+      "categoria": "regulação",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "ECA Digital",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Normas, legislação e conformidade",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "nota": "quando aplicável: produtos e serviços direcionados a crianças e adolescentes ou de acesso provável por eles"
+    },
+    {
+      "id": "i-iam",
+      "nome": "IAM",
+      "extenso": "Identity and Access Management, gestão de identidade e acesso",
+      "subarea": "identidade-e-acesso",
+      "posicao_principal": "seg",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        },
+        {
+          "posicao": "dig",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "IAM",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Identidade e acesso",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-pam",
+      "nome": "PAM",
+      "extenso": "Privileged Access Management, gestão de acesso privilegiado",
+      "subarea": "identidade-e-acesso",
+      "posicao_principal": "seg",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "PAM",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Identidade e acesso",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-ciem",
+      "nome": "CIEM",
+      "extenso": "Cloud Infrastructure Entitlement Management, gestão de permissões em infraestrutura de nuvem",
+      "subarea": "identidade-e-acesso",
+      "posicao_principal": "seg",
+      "categoria": "tecnologia",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "CIEM",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Identidade e acesso",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-firewall",
+      "nome": "Firewall",
+      "extenso": null,
+      "subarea": "controles-de-protecao",
+      "posicao_principal": "seg",
+      "categoria": "tecnologia",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "firewall",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Controles de proteção",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-proxy",
+      "nome": "Proxy",
+      "extenso": null,
+      "subarea": "controles-de-protecao",
+      "posicao_principal": "seg",
+      "categoria": "tecnologia",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "proxy",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Controles de proteção",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-antimalware",
+      "nome": "Antimalware",
+      "extenso": null,
+      "subarea": "controles-de-protecao",
+      "posicao_principal": "seg",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "antimalware",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Controles de proteção",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "nota": "a classificação interna registra 'antivírus' como tecnologia"
+    },
+    {
+      "id": "i-soc",
+      "nome": "SOC",
+      "extenso": "Security Operations Center, centro de operações de segurança",
+      "subarea": "operacao-de-seguranca",
+      "posicao_principal": "seg",
+      "categoria": "estrutura organizacional",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "SOC",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Operação de segurança",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-resposta-a-incidentes",
+      "nome": "Resposta a incidentes",
+      "extenso": null,
+      "subarea": "operacao-de-seguranca",
+      "posicao_principal": "seg",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "resposta a incidentes",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Operação de segurança",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-backup",
+      "nome": "Backup",
+      "extenso": "cópia de segurança",
+      "subarea": "resiliencia",
+      "posicao_principal": "seg",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        },
+        {
+          "posicao": "dad",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "backup",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Resiliência",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-continuidade-de-negocios",
+      "nome": "Continuidade de negócios",
+      "extenso": null,
+      "subarea": "resiliencia",
+      "posicao_principal": "seg",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "continuidade",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Resiliência",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "nota": "a classificação interna registra 'contingência' como prática"
+    },
+    {
+      "id": "i-recuperacao-de-desastres",
+      "nome": "Recuperação de desastres",
+      "extenso": null,
+      "subarea": "resiliencia",
+      "posicao_principal": "seg",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "recuperação de desastres",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Resiliência",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-gestao-de-fornecedores",
+      "nome": "Gestão de fornecedores",
+      "extenso": null,
+      "subarea": "terceiros",
+      "posicao_principal": "seg",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "fornecedores",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Terceiros",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-cadeia-de-suprimentos-de-software",
+      "nome": "Cadeia de suprimentos de software",
+      "extenso": null,
+      "subarea": "terceiros",
+      "posicao_principal": "seg",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "cadeia de software",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Terceiros",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-criptografia-pos-quantica",
+      "nome": "Criptografia pós-quântica",
+      "extenso": "executada em computação clássica",
+      "subarea": "transicao-criptografica",
+      "posicao_principal": "seg",
+      "categoria": "domínio",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "qua",
+          "fonte": "ref-plano-20261119"
+        },
+        {
+          "posicao": "dad",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "criptografia pós-quântica",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Transição criptográfica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-fips-203-204-e-205",
+      "nome": "FIPS 203, 204 e 205",
+      "extenso": "Federal Information Processing Standards: ML-KEM, ML-DSA e SLH-DSA",
+      "subarea": "transicao-criptografica",
+      "posicao_principal": "seg",
+      "categoria": "norma",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "FIPS 203, 204, 205",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Transição criptográfica",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "nota": "padrões federais do NIST; conferir erratas na redação"
+    },
+    {
+      "id": "i-agilidade-criptografica",
+      "nome": "Agilidade criptográfica",
+      "extenso": null,
+      "subarea": "transicao-criptografica",
+      "posicao_principal": "seg",
+      "categoria": "capacidade organizacional",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "qua",
+          "fonte": "ref-plano-20261119"
+        },
+        {
+          "posicao": "dig",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "agilidade",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Transição criptográfica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-inventario-criptografico",
+      "nome": "Inventário criptográfico",
+      "extenso": null,
+      "subarea": "transicao-criptografica",
+      "posicao_principal": "seg",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "qua",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "inventário criptográficos",
+      "fonte_local": {
+        "slide": 2,
+        "cartao": "Transição criptográfica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-dama-dmbok",
+      "nome": "DAMA-DMBOK",
+      "extenso": "Data Management Body of Knowledge, corpo de conhecimento em gestão de dados",
+      "subarea": "governanca-de-dados",
+      "posicao_principal": "dad",
+      "categoria": "corpo de conhecimento",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "ctx",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "DAMA-DMBOK",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Governança de dados",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-ferramenta-de-catalogo-de-dados",
+      "nome": "Ferramenta de catálogo de dados",
+      "extenso": null,
+      "subarea": "governanca-de-dados",
+      "posicao_principal": "dad",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "catálogo",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Governança de dados",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "nota": "a atividade de catalogar metadados é prática distinta"
+    },
+    {
+      "id": "i-linhagem-de-dados",
+      "nome": "Linhagem de dados",
+      "extenso": null,
+      "subarea": "governanca-de-dados",
+      "posicao_principal": "dad",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "linhagem",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Governança de dados",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-modelagem-de-dados",
+      "nome": "Modelagem de dados",
+      "extenso": null,
+      "subarea": "arquitetura-de-dados",
+      "posicao_principal": "dad",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "modelagem",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Arquitetura de dados",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-integracao-de-dados",
+      "nome": "Integração de dados",
+      "extenso": null,
+      "subarea": "arquitetura-de-dados",
+      "posicao_principal": "dad",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "integração",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Arquitetura de dados",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-data-lake",
+      "nome": "Data lake",
+      "extenso": "lago de dados",
+      "subarea": "armazenamento-analitico",
+      "posicao_principal": "dad",
+      "categoria": "modelo de armazenamento de dados",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "data lake",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Armazenamento analítico",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-data-warehouse",
+      "nome": "Data warehouse",
+      "extenso": "armazém de dados",
+      "subarea": "armazenamento-analitico",
+      "posicao_principal": "dad",
+      "categoria": "modelo de armazenamento de dados",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "data warehouse",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Armazenamento analítico",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-lakehouse",
+      "nome": "Lakehouse",
+      "extenso": null,
+      "subarea": "armazenamento-analitico",
+      "posicao_principal": "dad",
+      "categoria": "modelo de armazenamento de dados",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "lakehouse",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Armazenamento analítico",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-bi",
+      "nome": "BI",
+      "extenso": "Business Intelligence, inteligência de negócios",
+      "subarea": "analise",
+      "posicao_principal": "dad",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "ctx",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "BI",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Análise",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-analytics",
+      "nome": "Analytics",
+      "extenso": "análise de dados",
+      "subarea": "analise",
+      "posicao_principal": "dad",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "ctx",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "analytics",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Análise",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-big-data",
+      "nome": "Big Data",
+      "extenso": null,
+      "subarea": "analise",
+      "posicao_principal": "dad",
+      "categoria": "domínio",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "Big Data",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Análise",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-mlops",
+      "nome": "MLOps",
+      "extenso": "Machine Learning Operations, operação de modelos de aprendizado de máquina",
+      "subarea": "operacao-de-modelos",
+      "posicao_principal": "dad",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "MLOps",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Operação de modelos",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-llmops",
+      "nome": "LLMOps",
+      "extenso": "Large Language Model Operations, operação de grandes modelos de linguagem",
+      "subarea": "operacao-de-modelos",
+      "posicao_principal": "dad",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "LLMOps",
+      "fonte_local": {
+        "slide": 3,
+        "cartao": "Operação de modelos",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-hardware-quantico",
+      "nome": "Hardware quântico",
+      "extenso": null,
+      "subarea": "computacao-quantica",
+      "posicao_principal": "qua",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "hardware",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Computação quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-acesso-em-nuvem-a-computadores-quanticos",
+      "nome": "Acesso em nuvem a computadores quânticos",
+      "extenso": null,
+      "subarea": "computacao-quantica",
+      "posicao_principal": "qua",
+      "categoria": "modelo de serviço",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "acesso em nuvem",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Computação quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-algoritmos-quanticos",
+      "nome": "Algoritmos quânticos",
+      "extenso": null,
+      "subarea": "computacao-quantica",
+      "posicao_principal": "qua",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "algoritmos",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Computação quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "nota": "mantido como domínio: método, na legenda, designa forma prescrita de conduzir trabalho (ex.: PRINCE2)"
+    },
+    {
+      "id": "i-computacao-hibrida-quantico-classica",
+      "nome": "Computação híbrida quântico-clássica",
+      "extenso": null,
+      "subarea": "computacao-quantica",
+      "posicao_principal": "qua",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "Computação híbrida quântico-clássica",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Computação quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-simulacao-quantica",
+      "nome": "Simulação quântica",
+      "extenso": null,
+      "subarea": "computacao-quantica",
+      "posicao_principal": "qua",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "simulação",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Computação quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "nota": "campo de aplicação da computação quântica"
+    },
+    {
+      "id": "i-qkd",
+      "nome": "QKD",
+      "extenso": "Quantum Key Distribution, distribuição quântica de chaves",
+      "subarea": "comunicacao-quantica",
+      "posicao_principal": "qua",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "QKD",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Comunicação quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-redes-quanticas",
+      "nome": "Redes quânticas",
+      "extenso": null,
+      "subarea": "comunicacao-quantica",
+      "posicao_principal": "qua",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "redes quânticas",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Comunicação quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-qrng",
+      "nome": "QRNG",
+      "extenso": "Quantum Random Number Generation, geração quântica de números aleatórios",
+      "subarea": "comunicacao-quantica",
+      "posicao_principal": "qua",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "geração quântica de números aleatórios",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Comunicação quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "nota": "componente habilitador; posição na comunicação quântica é opção classificatória do autor"
+    },
+    {
+      "id": "i-relogios-atomicos",
+      "nome": "Relógios atômicos",
+      "extenso": null,
+      "subarea": "sensoriamento-e-metrologia-quantica",
+      "posicao_principal": "qua",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "relógios atômicos",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Sensoriamento e metrologia quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-magnetometros-quanticos",
+      "nome": "Magnetômetros quânticos",
+      "extenso": null,
+      "subarea": "sensoriamento-e-metrologia-quantica",
+      "posicao_principal": "qua",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "magnetômetros",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Sensoriamento e metrologia quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-gravimetros-quanticos",
+      "nome": "Gravímetros quânticos",
+      "extenso": null,
+      "subarea": "sensoriamento-e-metrologia-quantica",
+      "posicao_principal": "qua",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "gravímetros",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Sensoriamento e metrologia quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-navegacao-quantica",
+      "nome": "Navegação quântica",
+      "extenso": null,
+      "subarea": "sensoriamento-e-metrologia-quantica",
+      "posicao_principal": "qua",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "navegação",
+      "fonte_local": {
+        "slide": 4,
+        "cartao": "Sensoriamento e metrologia quântica",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-lan",
+      "nome": "LAN",
+      "extenso": "Local Area Network, rede local",
+      "subarea": "redes-e-conectividade",
+      "posicao_principal": "af",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "LAN",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Redes e conectividade",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "nota": "mantida como tecnologia, por coerência com SD-WAN e VPN"
+    },
+    {
+      "id": "i-sd-wan",
+      "nome": "SD-WAN",
+      "extenso": "Software-Defined Wide Area Network, rede de longa distância definida por software",
+      "subarea": "redes-e-conectividade",
+      "posicao_principal": "af",
+      "categoria": "tecnologia",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "SD-WAN",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Redes e conectividade",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-mpls",
+      "nome": "MPLS",
+      "extenso": "Multiprotocol Label Switching, comutação de rótulos multiprotocolo",
+      "subarea": "redes-e-conectividade",
+      "posicao_principal": "af",
+      "categoria": "padrão técnico",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "MPLS",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Redes e conectividade",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-vpn",
+      "nome": "VPN",
+      "extenso": "Virtual Private Network, rede privada virtual",
+      "subarea": "redes-e-conectividade",
+      "posicao_principal": "af",
+      "categoria": "tecnologia",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "seg",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "VPN",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Redes e conectividade",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-qos",
+      "nome": "QoS",
+      "extenso": "Quality of Service, qualidade de serviço",
+      "subarea": "redes-e-conectividade",
+      "posicao_principal": "af",
+      "categoria": "tecnologia",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "QoS",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Redes e conectividade",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-iaas",
+      "nome": "IaaS",
+      "extenso": "Infrastructure as a Service, infraestrutura como serviço",
+      "subarea": "nuvem",
+      "posicao_principal": "af",
+      "categoria": "modelo de serviço",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "IaaS",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Nuvem",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "destaque_soberania": {
+        "motivo": "associação com Soberania registrada na classificação",
+        "fonte": "ref-plano-20261119"
+      }
+    },
+    {
+      "id": "i-nuvem-publica",
+      "nome": "Nuvem pública",
+      "extenso": null,
+      "subarea": "nuvem",
+      "posicao_principal": "af",
+      "categoria": "modelo de implantação",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "pública",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Nuvem",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "destaque_soberania": {
+        "motivo": "associação com Soberania registrada na classificação",
+        "fonte": "ref-plano-20261119"
+      }
+    },
+    {
+      "id": "i-nuvem-privada",
+      "nome": "Nuvem privada",
+      "extenso": null,
+      "subarea": "nuvem",
+      "posicao_principal": "af",
+      "categoria": "modelo de implantação",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "privada",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Nuvem",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "destaque_soberania": {
+        "motivo": "associação com Soberania registrada na classificação",
+        "fonte": "ref-plano-20261119"
+      }
+    },
+    {
+      "id": "i-nuvem-hibrida",
+      "nome": "Nuvem híbrida",
+      "extenso": null,
+      "subarea": "nuvem",
+      "posicao_principal": "af",
+      "categoria": "modelo de implantação",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "híbrida",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Nuvem",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "destaque_soberania": {
+        "motivo": "associação com Soberania registrada na classificação",
+        "fonte": "ref-plano-20261119"
+      }
+    },
+    {
+      "id": "i-voip",
+      "nome": "VoIP",
+      "extenso": "Voice over Internet Protocol, voz sobre IP",
+      "subarea": "comunicacoes-unificadas",
+      "posicao_principal": "af",
+      "categoria": "tecnologia",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dig",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "VoIP",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Comunicações unificadas",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-sip",
+      "nome": "SIP",
+      "extenso": "Session Initiation Protocol, protocolo de início de sessão",
+      "subarea": "comunicacoes-unificadas",
+      "posicao_principal": "af",
+      "categoria": "padrão técnico",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "SIP",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Comunicações unificadas",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-pabx",
+      "nome": "PABX",
+      "extenso": "Private Automatic Branch Exchange, central telefônica privada",
+      "subarea": "comunicacoes-unificadas",
+      "posicao_principal": "af",
+      "categoria": "tecnologia",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "PABX",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Comunicações unificadas",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-devops",
+      "nome": "DevOps",
+      "extenso": null,
+      "subarea": "operacao",
+      "posicao_principal": "af",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dig",
+          "fonte": "ref-plano-20261119"
+        },
+        {
+          "posicao": "ctx",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "DevOps",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Operação",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-sre",
+      "nome": "SRE",
+      "extenso": "Site Reliability Engineering, engenharia de confiabilidade de sites",
+      "subarea": "operacao",
+      "posicao_principal": "af",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dig",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "SRE",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Operação",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-observabilidade",
+      "nome": "Observabilidade",
+      "extenso": null,
+      "subarea": "operacao",
+      "posicao_principal": "af",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dad",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "observabilidade",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Operação",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-noc",
+      "nome": "NOC",
+      "extenso": "Network Operations Center, centro de operações de rede",
+      "subarea": "operacao",
+      "posicao_principal": "af",
+      "categoria": "estrutura organizacional",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "seg",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "NOC",
+      "fonte_local": {
+        "slide": 5,
+        "cartao": "Operação",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-microsservicos",
+      "nome": "Microsserviços",
+      "extenso": null,
+      "subarea": "arquitetura-e-desenvolvimento",
+      "posicao_principal": "dig",
+      "categoria": "estilo arquitetural",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "microsserviços",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Arquitetura e desenvolvimento",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-componentes",
+      "nome": "Componentes",
+      "extenso": "arquitetura baseada em componentes",
+      "subarea": "arquitetura-e-desenvolvimento",
+      "posicao_principal": "dig",
+      "categoria": "estilo arquitetural",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "componentes",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Arquitetura e desenvolvimento",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-soa",
+      "nome": "SOA",
+      "extenso": "Service-Oriented Architecture, arquitetura orientada a serviços",
+      "subarea": "arquitetura-e-desenvolvimento",
+      "posicao_principal": "dig",
+      "categoria": "estilo arquitetural",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "SOA",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Arquitetura e desenvolvimento",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-rest",
+      "nome": "REST",
+      "extenso": "Representational State Transfer, transferência de estado representacional",
+      "subarea": "apis-e-integracao",
+      "posicao_principal": "dig",
+      "categoria": "estilo arquitetural",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "REST",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "APIs e integração",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-soap",
+      "nome": "SOAP",
+      "extenso": "Simple Object Access Protocol, protocolo simples de acesso a objetos",
+      "subarea": "apis-e-integracao",
+      "posicao_principal": "dig",
+      "categoria": "padrão técnico",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "SOAP",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "APIs e integração",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-graphql",
+      "nome": "GraphQL",
+      "extenso": "linguagem de consulta para APIs",
+      "subarea": "apis-e-integracao",
+      "posicao_principal": "dig",
+      "categoria": "padrão técnico",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dad",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "GraphQL",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "APIs e integração",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-mensageria",
+      "nome": "Mensageria",
+      "extenso": null,
+      "subarea": "apis-e-integracao",
+      "posicao_principal": "dig",
+      "categoria": "estilo arquitetural",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "mensageria",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "APIs e integração",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-paas",
+      "nome": "PaaS",
+      "extenso": "Platform as a Service, plataforma como serviço",
+      "subarea": "plataformas",
+      "posicao_principal": "dig",
+      "categoria": "modelo de serviço",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "PaaS",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Plataformas",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-saas",
+      "nome": "SaaS",
+      "extenso": "Software as a Service, software como serviço",
+      "subarea": "plataformas",
+      "posicao_principal": "dig",
+      "categoria": "modelo de serviço",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "ctx",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "SaaS",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Plataformas",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "destaque_soberania": {
+        "motivo": "associação com Soberania registrada na classificação",
+        "fonte": "ref-plano-20261119"
+      }
+    },
+    {
+      "id": "i-baixo-codigo",
+      "nome": "Baixo código",
+      "extenso": "plataformas low-code",
+      "subarea": "plataformas",
+      "posicao_principal": "dig",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "baixo código",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Plataformas",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-machine-learning",
+      "nome": "Machine learning",
+      "extenso": "aprendizado de máquina",
+      "subarea": "ia-aplicada",
+      "posicao_principal": "dig",
+      "categoria": "domínio",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dad",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "machine learning",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "IA aplicada",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-nlp",
+      "nome": "NLP",
+      "extenso": "Natural Language Processing, processamento de linguagem natural",
+      "subarea": "ia-aplicada",
+      "posicao_principal": "dig",
+      "categoria": "domínio",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dad",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "NLP",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "IA aplicada",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-ia-generativa",
+      "nome": "IA generativa",
+      "extenso": null,
+      "subarea": "ia-aplicada",
+      "posicao_principal": "dig",
+      "categoria": "domínio",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "IA generativa",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "IA aplicada",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-agentes-de-ia",
+      "nome": "Agentes de IA",
+      "extenso": null,
+      "subarea": "ia-aplicada",
+      "posicao_principal": "dig",
+      "categoria": "tecnologia",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "seg",
+          "fonte": "ref-plano-20261119"
+        },
+        {
+          "posicao": "dad",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "agentes",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "IA aplicada",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-erp",
+      "nome": "ERP",
+      "extenso": "Enterprise Resource Planning, planejamento de recursos empresariais",
+      "subarea": "sistemas-corporativos",
+      "posicao_principal": "dig",
+      "categoria": "categoria de software",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dad",
+          "fonte": "ref-plano-20261119"
+        },
+        {
+          "posicao": "ctx",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "ERP",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Sistemas corporativos",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-crm",
+      "nome": "CRM",
+      "extenso": "Customer Relationship Management, gestão do relacionamento com o cliente",
+      "subarea": "sistemas-corporativos",
+      "posicao_principal": "dig",
+      "categoria": "categoria de software",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dad",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "CRM",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Sistemas corporativos",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-hcm",
+      "nome": "HCM",
+      "extenso": "Human Capital Management, gestão de capital humano",
+      "subarea": "sistemas-corporativos",
+      "posicao_principal": "dig",
+      "categoria": "categoria de software",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "ctx",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "HCM",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Sistemas corporativos",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-wms",
+      "nome": "WMS",
+      "extenso": "Warehouse Management System, sistema de gestão de armazém",
+      "subarea": "sistemas-corporativos",
+      "posicao_principal": "dig",
+      "categoria": "categoria de software",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "WMS",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Sistemas corporativos",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-tms",
+      "nome": "TMS",
+      "extenso": "Transportation Management System, sistema de gestão de transportes",
+      "subarea": "sistemas-corporativos",
+      "posicao_principal": "dig",
+      "categoria": "categoria de software",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "TMS",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Sistemas corporativos",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-mes",
+      "nome": "MES",
+      "extenso": "Manufacturing Execution System, sistema de execução de manufatura",
+      "subarea": "sistemas-corporativos",
+      "posicao_principal": "dig",
+      "categoria": "categoria de software",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "MES",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Sistemas corporativos",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-sites",
+      "nome": "Sites",
+      "extenso": null,
+      "subarea": "presenca-digital",
+      "posicao_principal": "dig",
+      "categoria": "canal digital",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "seg",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "sites",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Presença digital",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-intranet",
+      "nome": "Intranet",
+      "extenso": null,
+      "subarea": "presenca-digital",
+      "posicao_principal": "dig",
+      "categoria": "canal digital",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "seg",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "intranet",
+      "fonte_local": {
+        "slide": 6,
+        "cartao": "Presença digital",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-cobit",
+      "nome": "COBIT",
+      "extenso": "Control Objectives for Information and Related Technologies, objetivos de controle para informação e tecnologias relacionadas",
+      "subarea": "governanca-de-ti",
+      "posicao_principal": "ctx",
+      "categoria": "framework",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "seg",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "COBIT",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Governança de TI",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-itil",
+      "nome": "ITIL",
+      "extenso": "Information Technology Infrastructure Library, biblioteca de infraestrutura de TI",
+      "subarea": "gestao-de-servicos",
+      "posicao_principal": "ctx",
+      "categoria": "framework",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        },
+        {
+          "posicao": "dig",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "ITIL",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Gestão de serviços",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-service-desk",
+      "nome": "Service desk",
+      "extenso": "central de serviços",
+      "subarea": "gestao-de-servicos",
+      "posicao_principal": "ctx",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "af",
+          "fonte": "ref-plano-20261119"
+        },
+        {
+          "posicao": "dig",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "service desk",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Gestão de serviços",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-pmbok",
+      "nome": "PMBOK",
+      "extenso": "Project Management Body of Knowledge, corpo de conhecimento em gerenciamento de projetos",
+      "subarea": "projetos-e-portfolio",
+      "posicao_principal": "ctx",
+      "categoria": "corpo de conhecimento",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "PMBOK",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Projetos e portfólio",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-prince2",
+      "nome": "PRINCE2",
+      "extenso": "Projects in Controlled Environments, projetos em ambientes controlados",
+      "subarea": "projetos-e-portfolio",
+      "posicao_principal": "ctx",
+      "categoria": "método",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "PRINCE2",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Projetos e portfólio",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-scrum",
+      "nome": "Scrum",
+      "extenso": null,
+      "subarea": "projetos-e-portfolio",
+      "posicao_principal": "ctx",
+      "categoria": "framework",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dig",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "Scrum",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Projetos e portfólio",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-kanban",
+      "nome": "Kanban",
+      "extenso": null,
+      "subarea": "projetos-e-portfolio",
+      "posicao_principal": "ctx",
+      "categoria": "método",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dig",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "Kanban",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Projetos e portfólio",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-bpm",
+      "nome": "BPM",
+      "extenso": "Business Process Management, gestão de processos de negócio",
+      "subarea": "processos-e-desempenho",
+      "posicao_principal": "ctx",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dig",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "BPM",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Processos e desempenho",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-kpi",
+      "nome": "KPI",
+      "extenso": "Key Performance Indicator, indicador-chave de desempenho",
+      "subarea": "processos-e-desempenho",
+      "posicao_principal": "ctx",
+      "categoria": "indicador",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "KPI",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Processos e desempenho",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-okr",
+      "nome": "OKR",
+      "extenso": "Objectives and Key Results, objetivos e resultados-chave",
+      "subarea": "processos-e-desempenho",
+      "posicao_principal": "ctx",
+      "categoria": "método",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "OKR",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Processos e desempenho",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-cmmi",
+      "nome": "CMMI",
+      "extenso": "Capability Maturity Model Integration, modelo integrado de maturidade de capacidades",
+      "subarea": "processos-e-desempenho",
+      "posicao_principal": "ctx",
+      "categoria": "modelo de maturidade",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "dig",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "CMMI",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Processos e desempenho",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-capex",
+      "nome": "Capex",
+      "extenso": "Capital Expenditure, despesa de capital",
+      "subarea": "financas-e-fornecedores",
+      "posicao_principal": "ctx",
+      "categoria": "conceito financeiro",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "Capex",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Finanças e fornecedores",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-opex",
+      "nome": "Opex",
+      "extenso": "Operational Expenditure, despesa operacional",
+      "subarea": "financas-e-fornecedores",
+      "posicao_principal": "ctx",
+      "categoria": "conceito financeiro",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "Opex",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Finanças e fornecedores",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-contratos",
+      "nome": "Contratos",
+      "extenso": null,
+      "subarea": "financas-e-fornecedores",
+      "posicao_principal": "ctx",
+      "categoria": "prática",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [
+        {
+          "posicao": "seg",
+          "fonte": "ref-plano-20261119"
+        }
+      ],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "contratos",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Finanças e fornecedores",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-bpo",
+      "nome": "BPO",
+      "extenso": "Business Process Outsourcing, terceirização de processos de negócio",
+      "subarea": "financas-e-fornecedores",
+      "posicao_principal": "ctx",
+      "categoria": "modelo de serviço",
+      "categoria_status": "documentada",
+      "categoria_fonte": "ref-plano-20261119",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "BPO",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Finanças e fornecedores",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-finops",
+      "nome": "FinOps",
+      "extenso": "gestão financeira do consumo de nuvem",
+      "subarea": "financas-e-fornecedores",
+      "posicao_principal": "ctx",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "FinOps",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Finanças e fornecedores",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-itam",
+      "nome": "ITAM",
+      "extenso": "IT Asset Management, gestão de ativos de TI",
+      "subarea": "ativos",
+      "posicao_principal": "ctx",
+      "categoria": "prática",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "ITAM",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Ativos",
+        "tambem_em": "slide 9 (mapa completo)"
+      }
+    },
+    {
+      "id": "i-cmdb",
+      "nome": "CMDB",
+      "extenso": "Configuration Management Database, base de dados de gerenciamento de configuração",
+      "subarea": "ativos",
+      "posicao_principal": "ctx",
+      "categoria": "tecnologia",
+      "categoria_status": "decidida",
+      "categoria_fonte": "ref-revisao-20261120",
+      "intersecoes": [],
+      "fonte": "ref-carrossel-20261117",
+      "fonte_termo": "CMDB",
+      "fonte_local": {
+        "slide": 7,
+        "cartao": "Ativos",
+        "tambem_em": "slide 9 (mapa completo)"
+      },
+      "nota": "designa o sistema; a administração da base é prática distinta"
+    }
+  ],
+  "relacoes": [
+    {
+      "tipo": "governa",
+      "origem": "seg",
+      "destino": "dad",
+      "descricao": "o envelope impõe requisitos de proteção, conformidade e resiliência",
+      "fonte": "ref-livro-parte1",
+      "id": "r01"
+    },
+    {
+      "tipo": "governa",
+      "origem": "seg",
+      "destino": "qua",
+      "descricao": "o envelope impõe requisitos de proteção, conformidade e resiliência",
+      "fonte": "ref-livro-parte1",
+      "id": "r02"
+    },
+    {
+      "tipo": "governa",
+      "origem": "seg",
+      "destino": "af",
+      "descricao": "o envelope impõe requisitos de proteção, conformidade e resiliência",
+      "fonte": "ref-livro-parte1",
+      "id": "r03"
+    },
+    {
+      "tipo": "governa",
+      "origem": "seg",
+      "destino": "dig",
+      "descricao": "o envelope impõe requisitos de proteção, conformidade e resiliência",
+      "fonte": "ref-livro-parte1",
+      "id": "r04"
+    },
+    {
+      "tipo": "contem",
+      "origem": "seg",
+      "destino": "dad",
+      "descricao": "relação lógica: a camada de dados está dentro do envelope",
+      "fonte": "ref-livro-parte1",
+      "id": "r05"
+    },
+    {
+      "tipo": "contem",
+      "origem": "dad",
+      "destino": "qua",
+      "descricao": "relação lógica; na cena, representada por atravessamento",
+      "fonte": "ref-livro-parte1",
+      "id": "r06"
+    },
+    {
+      "tipo": "contem",
+      "origem": "dad",
+      "destino": "af",
+      "descricao": "relação lógica; na cena, representada por atravessamento",
+      "fonte": "ref-livro-parte1",
+      "id": "r07"
+    },
+    {
+      "tipo": "contem",
+      "origem": "dad",
+      "destino": "dig",
+      "descricao": "relação lógica; na cena, representada por atravessamento",
+      "fonte": "ref-livro-parte1",
+      "id": "r08"
+    },
+    {
+      "tipo": "atravessa",
+      "origem": "dad",
+      "destino": "qua",
+      "descricao": "os dados nascem nos pilares, circulam entre eles e geram valor",
+      "fonte": "ref-livro-parte1",
+      "id": "r09"
+    },
+    {
+      "tipo": "atravessa",
+      "origem": "dad",
+      "destino": "af",
+      "descricao": "os dados nascem nos pilares, circulam entre eles e geram valor",
+      "fonte": "ref-livro-parte1",
+      "id": "r10"
+    },
+    {
+      "tipo": "atravessa",
+      "origem": "dad",
+      "destino": "dig",
+      "descricao": "os dados nascem nos pilares, circulam entre eles e geram valor",
+      "fonte": "ref-livro-parte1",
+      "id": "r11"
+    },
+    {
+      "tipo": "age-sobre",
+      "origem": "ctx",
+      "destino": "seg",
+      "descricao": "contrata, financia, mede e opera",
+      "fonte": "ref-livro-parte1",
+      "id": "r12"
+    },
+    {
+      "tipo": "age-sobre",
+      "origem": "ctx",
+      "destino": "dad",
+      "descricao": "contrata, financia, mede e opera",
+      "fonte": "ref-livro-parte1",
+      "id": "r13"
+    },
+    {
+      "tipo": "age-sobre",
+      "origem": "ctx",
+      "destino": "qua",
+      "descricao": "contrata, financia, mede e opera",
+      "fonte": "ref-livro-parte1",
+      "id": "r14"
+    },
+    {
+      "tipo": "age-sobre",
+      "origem": "ctx",
+      "destino": "af",
+      "descricao": "contrata, financia, mede e opera",
+      "fonte": "ref-livro-parte1",
+      "id": "r15"
+    },
+    {
+      "tipo": "age-sobre",
+      "origem": "ctx",
+      "destino": "dig",
+      "descricao": "contrata, financia, mede e opera",
+      "fonte": "ref-livro-parte1",
+      "id": "r16"
+    },
+    {
+      "tipo": "aplica-se-a",
+      "origem": "sob",
+      "destino": "seg",
+      "descricao": "pergunta de controle jurídico, operacional e tecnológico",
+      "fonte": "ref-livro-parte1",
+      "id": "r17"
+    },
+    {
+      "tipo": "aplica-se-a",
+      "origem": "sob",
+      "destino": "dad",
+      "descricao": "pergunta de controle jurídico, operacional e tecnológico",
+      "fonte": "ref-livro-parte1",
+      "enfase": "ênfase do protocolo: localização, acesso e controle de dados",
+      "enfase_fonte": "ref-protocolo-v04",
+      "id": "r18"
+    },
+    {
+      "tipo": "aplica-se-a",
+      "origem": "sob",
+      "destino": "qua",
+      "descricao": "pergunta de controle jurídico, operacional e tecnológico",
+      "fonte": "ref-livro-parte1",
+      "id": "r19"
+    },
+    {
+      "tipo": "aplica-se-a",
+      "origem": "sob",
+      "destino": "af",
+      "descricao": "pergunta de controle jurídico, operacional e tecnológico",
+      "fonte": "ref-livro-parte1",
+      "enfase": "ênfase do protocolo: infraestrutura física crítica sob jurisdição estrangeira",
+      "enfase_fonte": "ref-protocolo-v04",
+      "id": "r20"
+    },
+    {
+      "tipo": "aplica-se-a",
+      "origem": "sob",
+      "destino": "dig",
+      "descricao": "pergunta de controle jurídico, operacional e tecnológico",
+      "fonte": "ref-livro-parte1",
+      "id": "r21"
+    },
+    {
+      "tipo": "aplica-se-a",
+      "origem": "sob",
+      "destino": "ctx",
+      "descricao": "pergunta de controle jurídico, operacional e tecnológico",
+      "fonte": "ref-livro-parte1",
+      "id": "r22"
+    },
+    {
+      "tipo": "implica",
+      "origem": "qua",
+      "destino": "transicao-criptografica",
+      "descricao": "impacto sobre a criptografia de chave pública (RSA e curvas elípticas); a resposta fica no envelope",
+      "fonte": "ref-livro-parte1",
+      "id": "r23"
+    },
+    {
+      "tipo": "intersecta",
+      "origem": "seg",
+      "destino": "qua",
+      "descricao": "ameaça quântica a dados cifrados classicamente; resposta na transição criptográfica",
+      "fonte": "ref-protocolo-v04",
+      "id": "r24"
+    },
+    {
+      "tipo": "intersecta",
+      "origem": "seg",
+      "destino": "af",
+      "descricao": "ataques físicos à infraestrutura; segurança física e continuidade",
+      "fonte": "ref-protocolo-v04",
+      "id": "r25"
+    },
+    {
+      "tipo": "intersecta",
+      "origem": "seg",
+      "destino": "dig",
+      "descricao": "autonomia excessiva de agentes de IA; risco, segurança e conformidade de IA",
+      "fonte": "ref-protocolo-v04",
+      "id": "r26"
+    },
+    {
+      "tipo": "intersecta",
+      "origem": "qua",
+      "destino": "af",
+      "descricao": "restrições de dispositivos de borda e IoT",
+      "fonte": "ref-protocolo-v04",
+      "id": "r27"
+    },
+    {
+      "tipo": "intersecta",
+      "origem": "qua",
+      "destino": "dig",
+      "descricao": "interface entre computação clássica e quântica",
+      "fonte": "ref-protocolo-v04",
+      "id": "r28"
+    },
+    {
+      "tipo": "intersecta",
+      "origem": "af",
+      "destino": "dig",
+      "descricao": "cadeia de suprimentos de hardware e integridade do software",
+      "fonte": "ref-protocolo-v04",
+      "id": "r29"
+    },
+    {
+      "tipo": "intersecta",
+      "origem": "dad",
+      "destino": "qua",
+      "descricao": "proteção de dados de longo prazo",
+      "fonte": "ref-protocolo-v04",
+      "id": "r30"
+    },
+    {
+      "tipo": "intersecta",
+      "origem": "dad",
+      "destino": "af",
+      "descricao": "integridade do dado desde a captura no sensor",
+      "fonte": "ref-protocolo-v04",
+      "id": "r31"
+    },
+    {
+      "tipo": "intersecta",
+      "origem": "dad",
+      "destino": "dig",
+      "descricao": "governança de pipelines, privacidade e conformidade",
+      "fonte": "ref-protocolo-v04",
+      "id": "r32"
+    },
+    {
+      "tipo": "intersecta",
+      "origem": "operacao-de-modelos",
+      "destino": "ia-aplicada",
+      "descricao": "MLOps e LLMOps operam os modelos da IA aplicada",
+      "fonte": "ref-livro-parte1",
+      "id": "r33"
+    }
+  ],
+  "soberania": {
+    "dimensoes": [
+      {
+        "id": "sob-juridico",
+        "nome": "Controle jurídico"
+      },
+      {
+        "id": "sob-operacional",
+        "nome": "Controle operacional"
+      },
+      {
+        "id": "sob-tecnologico",
+        "nome": "Controle tecnológico"
+      }
+    ],
+    "dimensoes_fonte": "ref-livro-parte1",
+    "dimensoes_status": "decisão do autor, revogável",
+    "temas": [
+      {
+        "id": "tema-jurisdicao-dos-dados",
+        "nome": "Jurisdição dos dados",
+        "detalhe": "onde estão e qual lei se aplica"
+      },
+      {
+        "id": "tema-dependencia-de-provedores",
+        "nome": "Dependência de provedores",
+        "detalhe": "concentração e risco de bloqueio"
+      },
+      {
+        "id": "tema-nuvens-soberanas",
+        "nome": "Nuvens soberanas",
+        "detalhe": "controle jurídico, operacional e tecnológico conforme requisitos de soberania"
+      }
+    ],
+    "temas_fonte": "ref-carrossel-20261117",
+    "temas_status": "temas de exploração, não taxonomia",
+    "vetores": [
+      {
+        "id": "vetor-infraestrutura",
+        "nome": "Infraestrutura"
+      },
+      {
+        "id": "vetor-dados",
+        "nome": "Dados"
+      },
+      {
+        "id": "vetor-tecnologia",
+        "nome": "Tecnologia"
+      },
+      {
+        "id": "vetor-governanca",
+        "nome": "Governança"
+      },
+      {
+        "id": "vetor-cooperacao-internacional",
+        "nome": "Cooperação internacional"
+      }
+    ],
+    "vetores_fonte": "ref-protocolo-v04",
+    "vetores_status": "recorte complementar"
+  }
+}
