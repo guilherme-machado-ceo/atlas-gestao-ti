@@ -4,10 +4,10 @@ import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { inspectAttr } from 'kimi-plugin-inspect-react'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   base: './',
   plugins: [
-    inspectAttr(),
+    command === 'serve' ? inspectAttr() : null,
     react(),
     VitePWA({
       registerType: 'autoUpdate',
@@ -39,4 +39,4 @@ export default defineConfig({
   ],
   server: { port: 3000 },
   resolve: { alias: { '@': path.resolve(__dirname, './src') } },
-})
+}))
