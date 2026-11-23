@@ -19,21 +19,20 @@
   z-index: 40;
 }
 
-.brand { display: flex; align-items: center; gap: 13px; min-width: 0; }
-.brand > div { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+.brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+.brand-hubstry { display: block; width: 122px; height: auto; flex: 0 0 auto; object-fit: contain; }
+.brand-separator { width: 1px; height: 27px; flex: 0 0 auto; background: var(--line); }
+.brand-product { display: flex; align-items: baseline; gap: 9px; min-width: 0; }
 .brand strong {
   font-family: 'Space Grotesk Variable', sans-serif;
   font-size: 23px;
   line-height: 1;
   letter-spacing: -0.04em;
 }
-.brand > div > span { color: var(--muted); font-size: 12px; white-space: nowrap; }
-.brand-mark { width: 30px; height: 32px; display: flex; align-items: flex-end; gap: 3px; transform: skewY(-10deg); }
-.brand-mark i { width: 8px; border: 1px solid var(--mint); background: rgba(114, 214, 180, 0.12); }
-.brand-mark i:nth-child(1) { height: 19px; }
-.brand-mark i:nth-child(2) { height: 29px; border-color: var(--gold); background: rgba(231, 182, 106, 0.1); }
-.brand-mark i:nth-child(3) { height: 23px; border-color: var(--blue); background: rgba(139, 201, 232, 0.1); }
-.header-actions { display: flex; align-items: center; gap: 16px; }
+.brand-product > span { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.header-actions { display: flex; align-items: center; gap: 14px; }
+.nvidia-inception-badge { display: inline-flex; width: 84px; flex: 0 0 auto; align-items: center; justify-content: center; padding: 2px; overflow: hidden; border-radius: 3px; background: #fff; }
+.nvidia-inception-badge img { display: block; width: 100%; height: auto; }
 .version-label { color: var(--faint); font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; }
 .view-switch { display: flex; padding: 3px; border: 1px solid var(--line); border-radius: 8px; background: #0c1519; }
 .view-switch button {
@@ -249,11 +248,12 @@
   .atlas-layout { grid-template-columns: 225px minmax(380px, 1fr) 310px; }
   .workspace { padding-inline: 13px; }
   .detail-content { padding-inline: 18px; }
-  .brand > div > span, .version-label { display: none; }
+  .brand-product > span, .version-label { display: none; }
   .toolbar button > span { display: none; }
 }
 
 @media (max-width: 900px) {
+  .nvidia-inception-badge { display: none; }
   .topbar { height: 64px; padding-inline: 16px; }
   .mobile-menu, .mobile-only { display: inline-grid; }
   .atlas-layout { height: calc(100dvh - 64px); grid-template-columns: minmax(0, 1fr) 310px; }
@@ -268,7 +268,9 @@
 @media (max-width: 680px) {
   .topbar { padding-inline: 12px; gap: 8px; }
   .brand { gap: 8px; }
-  .brand-mark { width: 25px; transform: scale(.85) skewY(-10deg); transform-origin: left center; }
+  .brand-hubstry { width: 106px; }
+  .brand-separator { height: 23px; }
+  .brand-product, .brand-separator { display: none; }
   .brand strong { font-size: 20px; }
   .header-actions { gap: 7px; }
   .view-switch button { min-height: 40px; padding-inline: 9px; font-size: 11px; }
@@ -309,7 +311,7 @@
 }
 
 @media (max-width: 390px) {
-  .brand > div { display: none; }
+  .brand-product, .brand-separator { display: none; }
   .scene-legend { font-size: 8px; }
   .toolbar button { padding-inline: 8px; }
   .toolbar button svg { width: 15px; }
