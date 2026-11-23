@@ -73,7 +73,7 @@ export default function App() {
     <div className="atlas-app">
       <header className="topbar">
         <div className="brand">
-          <img className="brand-hubstry" src="./hubstry-wordmark.png" alt="Hubstry" />
+          <img className="brand-hubstry" src="./hubstry-wordmark-v2.svg" alt="Hubstry" />
           <span className="brand-separator" aria-hidden="true" />
           <div className="brand-product"><strong>Atlas</strong><span>Gestão de TI em camadas</span></div>
         </div>

@@ -11,7 +11,7 @@ export default defineConfig(({ command }) => ({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['atlas-icon.svg', 'atlas-icon-192.png', 'atlas-icon-512.png', 'hubstry-favicon-32.png', 'hubstry-wordmark.png', 'nvidia-inception-program-badge.png', 'data/atlas-modelo-v021-20261120.json'],
+      includeAssets: ['atlas-icon.svg', 'atlas-icon-192.png', 'atlas-icon-512.png', 'hubstry-favicon-32.png', 'hubstry-wordmark-v2.svg', 'nvidia-inception-program-badge.png', 'data/atlas-modelo-v021-20261120.json'],
       manifest: {
         name: 'Atlas de Gestão de TI em camadas',
         short_name: 'Atlas TI',
