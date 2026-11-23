@@ -144,7 +144,7 @@ test('mobile mantém busca, acordeões e navegação sem rolagem horizontal', as
 
   const transition = page.locator('.protocol-subarea').filter({ hasText: 'Transição criptográfica' })
   await expect(transition).toHaveAttribute('open', '')
-  const subareaSummary = transition.locator('summary')
+  const subareaSummary = transition.locator(':scope > summary')
   await subareaSummary.focus()
   await page.keyboard.press('Enter')
   await expect(transition).not.toHaveAttribute('open', '')

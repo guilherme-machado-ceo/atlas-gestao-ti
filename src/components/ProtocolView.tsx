@@ -140,6 +140,8 @@ function SearchResults({ atlas, query, onOpenInMap }: {
           <div>
             <strong>{item.nome}</strong>
             <span>{subarea?.nome ?? 'Subárea não encontrada'}</span>
+            {item.extenso && <span className="search-result-definition">{item.extenso}</span>}
+            {item.nota && <span className="search-result-definition">{item.nota}</span>}
           </div>
           <CoverageBadge mark={mark} />
           {editorial && <p>{editorial.summary}</p>}

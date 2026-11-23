@@ -504,3 +504,5 @@
 }
 
 .relation-ref-list { margin: 10px 0 0; padding-top: 9px; border-top: 1px solid var(--line-soft); color: var(--faint); font-size: 9px; }
+
+.search-result-definition { color: #94a7a2 !important; font-size: 9px; line-height: 1.5; }
