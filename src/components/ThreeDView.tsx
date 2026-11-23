@@ -50,6 +50,7 @@ function webgl2Available(): boolean {
 }
 
 export function ThreeDView(props: ThreeDViewProps) {
+  const { onFailure, ...sceneProps } = props
   const containerRef = useRef<HTMLDivElement>(null)
   const [webglReady, setWebglReady] = useState(false)
   const didFail = useRef(false)
@@ -59,19 +60,20 @@ export function ThreeDView(props: ThreeDViewProps) {
     let observedCanvas: HTMLCanvasElement | null = null
     let observer: MutationObserver | null = null
     let timeout = 0
+    let readyFrame = 0
 
     const fail = (message: string) => {
       if (!active || didFail.current) return
       didFail.current = true
-      props.onFailure(message)
+      onFailure(message)
     }
 
     if (!webgl2Available()) {
-      fail('WebGL 2 não está disponível neste navegador. O Atlas abriu o Mapa 2D; o conteúdo editorial não depende de GPU.')
+      window.requestAnimationFrame(() => fail('WebGL 2 não está disponível neste navegador. O Atlas abriu o Mapa 2D; o conteúdo editorial não depende de GPU.'))
       return () => { active = false }
     }
 
-    setWebglReady(true)
+    readyFrame = window.requestAnimationFrame(() => setWebglReady(true))
 
     const onContextLost = (event: Event) => {
       event.preventDefault()
@@ -99,11 +101,12 @@ export function ThreeDView(props: ThreeDViewProps) {
 
     return () => {
       active = false
+      window.cancelAnimationFrame(readyFrame)
       window.clearTimeout(timeout)
       observer?.disconnect()
       observedCanvas?.removeEventListener('webglcontextlost', onContextLost)
     }
-  }, [props.onFailure])
+  }, [onFailure])
 
   return (
     <div ref={containerRef} className="three-d-page">
@@ -112,18 +115,18 @@ export function ThreeDView(props: ThreeDViewProps) {
           <p>Verificando suporte a WebGL 2…</p>
         </div>
       ) : (
-        <SceneBoundary onFailure={props.onFailure}>
+        <SceneBoundary onFailure={onFailure}>
           <Suspense fallback={<div className="scene-fallback" role="status"><p>Carregando o módulo de visualização 3D…</p></div>}>
             <AtlasScene
-              atlas={props.atlas}
-              selection={props.selection}
-              sovereignty={props.sovereignty}
-              showIntersections={props.showIntersections}
-              reducedMotion={props.reducedMotion}
-              onSelectPosition={props.onSelectPosition}
-              onSelectSubarea={props.onSelectSubarea}
-              onSelectItem={props.onSelectItem}
-              onUse2D={props.onUse2D}
+              atlas={sceneProps.atlas}
+              selection={sceneProps.selection}
+              sovereignty={sceneProps.sovereignty}
+              showIntersections={sceneProps.showIntersections}
+              reducedMotion={sceneProps.reducedMotion}
+              onSelectPosition={sceneProps.onSelectPosition}
+              onSelectSubarea={sceneProps.onSelectSubarea}
+              onSelectItem={sceneProps.onSelectItem}
+              onUse2D={sceneProps.onUse2D}
             />
           </Suspense>
         </SceneBoundary>
