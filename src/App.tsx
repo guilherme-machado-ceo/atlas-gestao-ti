@@ -72,7 +72,11 @@ export default function App() {
   return (
     <div className="atlas-app">
       <header className="topbar">
-        <div className="brand"><span className="brand-mark" aria-hidden="true"><i /><i /><i /></span><div><strong>Atlas</strong><span>Gestão de TI em camadas</span></div></div>
+        <div className="brand">
+          <img className="brand-hubstry" src="./hubstry-wordmark.png" alt="Hubstry" />
+          <span className="brand-separator" aria-hidden="true" />
+          <div className="brand-product"><strong>Atlas</strong><span>Gestão de TI em camadas</span></div>
+        </div>
         <div className="header-actions">
           <span className="version-label">modelo {atlas.meta.versao_modelo}</span>
           <nav className="view-switch primary-nav" aria-label="Áreas do Atlas">
@@ -81,6 +85,7 @@ export default function App() {
             <button type="button" className={section === '3d' ? 'is-active' : ''} onClick={() => { setSceneNotice(null); setSection('3d') }} aria-pressed={section === '3d'}><Boxes size={16} /> Atlas 3D</button>
             <button type="button" className={section === 'sources' ? 'is-active' : ''} onClick={() => setSection('sources')} aria-pressed={section === 'sources'}><FileSearch size={16} /> Fontes e método</button>
           </nav>
+          <a className="nvidia-inception-badge" href="https://www.nvidia.com/en-us/startups/" target="_blank" rel="noreferrer" aria-label="NVIDIA Inception Program"><img src="./nvidia-inception-program-badge.png" alt="NVIDIA Inception Program" /></a>
           <button type="button" className="icon-button mobile-menu" onClick={() => setExplorerOpen(true)} aria-label="Abrir explorador"><Menu size={20} /></button>
         </div>
       </header>

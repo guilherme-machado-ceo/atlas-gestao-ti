@@ -157,3 +157,15 @@ test('mobile mantém busca, acordeões e navegação sem rolagem horizontal', as
   await expect(page.locator('.search-results')).toContainText('LGPD')
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
 })
+
+test('Hubstry branding, favicon e selo NVIDIA Inception carregam', async ({ page }) => {
+  await openProtocol(page)
+  await expect(page.locator('.brand-hubstry')).toBeVisible()
+  await expect(page.locator('.nvidia-inception-badge img')).toBeAttached()
+  await expect(page.locator('link[rel="icon"][sizes="32x32"]')).toHaveAttribute('href', './hubstry-favicon-32.png')
+
+  const imageWidths = await page.locator('.brand-hubstry, .nvidia-inception-badge img').evaluateAll(
+    (images: HTMLImageElement[]) => images.map((image) => image.naturalWidth),
+  )
+  expect(imageWidths).toEqual([958, 501])
+})
