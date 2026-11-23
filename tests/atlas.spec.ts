@@ -1,142 +1,159 @@
 import { expect, test } from '@playwright/test'
-import { mkdir } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
+import { readFile } from 'node:fs/promises'
+import { EDITORIAL_MANIFEST } from '../src/editorial/security-sample'
 
-const shots = '/tmp/atlas-checks'
-
-async function openReady(page: import('@playwright/test').Page, suffix = '') {
-  await page.goto(`/${suffix}`)
-  await expect(page.getByRole('heading', { name: 'Uma arquitetura de contenção e atravessamento' })).toBeVisible()
-  await page.waitForFunction(() => window.__SCENE_READY__ === true)
+async function openProtocol(page: import('@playwright/test').Page) {
+  await page.goto('/')
+  await expect(page.getByRole('heading', { name: 'Protocolo Geral de Tecnologia' })).toBeVisible()
+  await expect(page.locator('.protocol-thesis')).toBeVisible()
 }
 
-test('sistema, posição, subárea e item compartilham a mesma seleção', async ({ page }) => {
-  const errors: string[] = []
-  const missing: string[] = []
-  page.on('pageerror', (error) => errors.push(error.message))
-  page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()) })
-  page.on('response', (response) => { if (response.status() === 404) missing.push(response.url()) })
+test('a leitura do Protocolo é a experiência inicial e não carrega o módulo 3D', async ({ page }) => {
+  const requests: string[] = []
+  page.on('request', (request) => requests.push(request.url()))
 
-  await mkdir(shots, { recursive: true })
-  await openReady(page)
-  await expect(page.locator('.metric-row')).toContainText('41')
-  await expect(page.locator('.metric-row')).toContainText('101')
-  await expect(page.locator('.metric-row')).toContainText('33')
-  await expect(page.locator('.scene-label')).toHaveCount(6)
-  await expect(page.locator('.scene-label').filter({ hasText: 'Segurança por Design' })).toBeVisible()
-  await page.screenshot({ path: `${shots}/desktop-sistema.png`, fullPage: true })
-
-  await page.locator('.position-button').filter({ hasText: 'Segurança por Design' }).click()
-  await expect(page.locator('.detail-panel h2')).toHaveText('Segurança por Design')
-  await page.locator('.subarea-list button').filter({ hasText: 'Transição criptográfica' }).click()
-  await expect(page.locator('.subarea-detail h3')).toHaveText('Transição criptográfica')
-  await page.locator('.item-list button').filter({ hasText: 'Criptografia pós-quântica' }).click()
-  await expect(page.locator('.detail-panel h2')).toHaveText('Criptografia pós-quântica')
-  await expect(page.locator('.meta-list')).toContainText('carrossel e mapa autoral revisado')
-  await expect(page.locator('.breadcrumb')).toContainText('Segurança por Design')
-  await expect(page.locator('.breadcrumb')).toContainText('Transição criptográfica')
-  await page.screenshot({ path: `${shots}/desktop-item.png`, fullPage: true })
-
-  await page.locator('.toolbar button').filter({ hasText: 'Interseções' }).click()
-  await expect(page.locator('.intersection-section .chip-list button')).toHaveCount(2)
-  await page.locator('.toolbar button').filter({ hasText: 'Soberania' }).click()
-  await expect(page.getByRole('heading', { name: 'Lente de Soberania ativa' })).toBeVisible()
-  await expect(page.locator('.explorer')).not.toContainText('Soberania Digital é uma posição')
-  await page.screenshot({ path: `${shots}/desktop-lente-intersecoes.png`, fullPage: true })
-
-  await page.locator('.toolbar button').filter({ hasText: 'Vista inicial' }).click()
-  await expect(page.locator('.detail-panel h2')).toHaveText('Uma arquitetura de contenção e atravessamento')
-  expect(errors).toEqual([])
-  expect(missing).toEqual([])
+  await openProtocol(page)
+  await expect(page.getByRole('button', { name: 'Protocolo' })).toHaveAttribute('aria-pressed', 'true')
+  await expect(page.locator('.protocol-subarea')).toHaveCount(9)
+  await expect(page.locator('canvas')).toHaveCount(0)
+  expect(requests.some((url) => /AtlasScene|three\.module|three\.core/.test(url))).toBe(false)
+  await expect(page.locator('.protocol-thesis-meta')).toContainText('101 itens taxonômicos pesquisáveis')
 })
 
-test('lista 2D tem as dez interseções e mantém o detalhe do item', async ({ page }) => {
-  await openReady(page)
-  await page.getByRole('button', { name: 'Lista 2D' }).click()
-  await expect(page.locator('.navigator-grid > button')).toHaveCount(6)
-  await page.locator('.toolbar button').filter({ hasText: 'Interseções' }).click()
-  await expect(page.locator('.intersection-list li')).toHaveCount(10)
-  await expect(page.locator('.intersection-list')).toContainText('MLOps e LLMOps operam os modelos da IA aplicada')
-  await page.locator('.intersection-endpoints button').filter({ hasText: 'IA aplicada' }).click()
-  await expect(page.locator('.navigator-heading h2')).toHaveText('Itens da subárea')
-  await page.locator('.navigator-list button').first().click()
-  await expect(page.locator('.navigator-item-summary')).toBeVisible()
-  await expect(page.locator('.detail-panel h2')).not.toHaveText('Uma arquitetura de contenção e atravessamento')
-  await page.screenshot({ path: `${shots}/desktop-2d.png`, fullPage: true })
-})
+test('a amostra de Segurança preserva as nove subáreas e vinte itens', async ({ page }) => {
+  await openProtocol(page)
+  const subareas = page.locator('.protocol-subarea')
+  await expect(subareas).toHaveCount(9)
 
-test('mobile funciona sem hover, contém o foco e não cria scroll horizontal', async ({ page }) => {
-  await page.setViewportSize({ width: 375, height: 812 })
-  await openReady(page)
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
-  await page.getByRole('button', { name: 'Abrir explorador' }).click()
-  await expect(page.getByRole('dialog', { name: 'Explorador da arquitetura' })).toBeVisible()
-  await expect(page.getByRole('button', { name: 'Fechar explorador' }).last()).toBeFocused()
-  await page.keyboard.press('Escape')
-  await expect(page.getByRole('button', { name: 'Abrir explorador' })).toBeFocused()
-  await page.getByRole('button', { name: 'Abrir explorador' }).click()
-  await page.locator('.position-button').filter({ hasText: 'Digital' }).click()
-  await expect(page.getByRole('dialog')).toHaveCount(0)
-  await expect(page.locator('.detail-panel h2')).toHaveText('Pilar Digital')
-  await page.getByRole('button', { name: 'Lista 2D' }).click()
-  await expect(page.locator('.navigator-list button')).toHaveCount(7)
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
-  await page.screenshot({ path: `${shots}/mobile-375.png`, fullPage: true })
-})
-
-test('viewport curta mantém os seis rótulos sem sobreposição', async ({ page }) => {
-  await page.setViewportSize({ width: 520, height: 340 })
-  await openReady(page, '?capture=1&t=0')
-  await page.waitForTimeout(200)
-  const labels = page.locator('.scene-label')
-  await expect(labels).toHaveCount(6)
-  const boxes = await labels.evaluateAll((elements) => elements.map((element) => {
-    const box = element.getBoundingClientRect()
-    return { name: element.textContent, left: box.left, right: box.right, top: box.top, bottom: box.bottom }
+  await subareas.evaluateAll((elements) => elements.forEach((element) => {
+    (element as HTMLDetailsElement).open = true
   }))
-  await page.screenshot({ path: `${shots}/mobile-curto-520x340.png`, fullPage: true })
-  for (let first = 0; first < boxes.length; first += 1) {
-    for (let second = first + 1; second < boxes.length; second += 1) {
-      const a = boxes[first]
-      const b = boxes[second]
-      const overlap = Math.min(a.right, b.right) - Math.max(a.left, b.left) > 1
-        && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 1
-      expect(overlap, `${a.name} não deve sobrepor ${b.name}: ${JSON.stringify({ a, b })}`).toBe(false)
+  await expect(page.locator('.protocol-item')).toHaveCount(20)
+
+  const transition = page.locator('.protocol-subarea').filter({ hasText: 'Transição criptográfica' })
+  await expect(transition).toHaveAttribute('open', '')
+  await transition.locator('.protocol-item').filter({ hasText: 'Criptografia pós-quântica' }).locator('summary').click()
+  await expect(transition).toContainText('FIPS 203 / ML-KEM')
+  await expect(transition).toContainText('FIPS 204 / ML-DSA')
+  await expect(transition).toContainText('FIPS 205 / SLH-DSA')
+  await expect(transition).toContainText('harvest now, decrypt later')
+  await expect(transition).toContainText('linhas 517–529')
+  await expect(transition).toContainText('r23')
+  await expect(transition).toContainText('r24')
+  await expect(transition).toContainText('r30')
+  await expect(transition).toContainText('Origem do impacto e local da resposta são distintos.')
+  await expect(page.locator('.protocol-subarea').filter({ hasText: 'Controles de proteção' })).toContainText('Lacuna documental')
+})
+
+test('a busca indexa os 101 itens e identifica lacunas fora da amostra', async ({ page }) => {
+  await openProtocol(page)
+  const search = page.getByRole('searchbox', { name: 'Buscar nas posições, subáreas, itens e texto editorial' })
+
+  await search.fill('PQC')
+  await expect(page.locator('.search-results')).toContainText('Criptografia pós-quântica')
+  await expect(page.locator('.search-results')).toContainText('ML-KEM')
+
+  await search.fill('CIEM')
+  await expect(page.locator('.search-results')).toContainText('CIEM')
+  await expect(page.locator('.search-results')).toContainText('Lacuna documental')
+
+  await search.fill('Scrum')
+  await expect(page.locator('.search-results')).toContainText('Scrum')
+  await expect(page.locator('.search-results')).toContainText('Somente taxonômico — fora da amostra')
+})
+
+test('Mapa 2D permite navegar por posições, subáreas e itens sem WebGL', async ({ page }) => {
+  await openProtocol(page)
+  await page.getByRole('button', { name: 'Mapa 2D' }).click()
+  await expect(page.locator('.navigator-grid > button')).toHaveCount(6)
+
+  await page.locator('.navigator-grid > button').filter({ hasText: 'Segurança por Design' }).click()
+  await expect(page.locator('.navigator-list button')).toHaveCount(9)
+  await page.locator('.navigator-list button').filter({ hasText: 'Transição criptográfica' }).click()
+  await expect(page.locator('.navigator-list button')).toHaveCount(4)
+  await page.locator('.navigator-list button').filter({ hasText: 'Criptografia pós-quântica' }).click()
+  await expect(page.locator('.navigator-item-summary')).toContainText('Criptografia pós-quântica')
+  await expect(page.locator('canvas')).toHaveCount(0)
+})
+
+test('Atlas 3D só é carregado após solicitação explícita e reage à perda de contexto', async ({ page }) => {
+  await openProtocol(page)
+  await expect(page.locator('canvas')).toHaveCount(0)
+
+  await page.getByRole('button', { name: 'Atlas 3D' }).click()
+  await expect(page.locator('canvas')).toHaveCount(1, { timeout: 20_000 })
+  await page.waitForFunction(() => window.__SCENE_READY__ === true, { timeout: 20_000 })
+
+  await page.locator('canvas').evaluate((canvas) => {
+    canvas.dispatchEvent(new Event('webglcontextlost', { bubbles: false, cancelable: true }))
+  })
+  await expect(page.locator('.scene-notice')).toContainText('contexto WebGL foi perdido')
+  await expect(page.locator('.navigator-2d')).toBeVisible()
+})
+
+test('WebGL2 indisponível faz fallback automático para o Mapa 2D', async ({ page }) => {
+  await page.addInitScript(() => {
+    const original = HTMLCanvasElement.prototype.getContext
+    HTMLCanvasElement.prototype.getContext = function (type: string, ...args: unknown[]) {
+      if (type === 'webgl2') return null
+      return original.call(this, type as never, ...(args as never[]))
     }
-  }
+  })
+  await openProtocol(page)
+  await page.getByRole('button', { name: 'Atlas 3D' }).click()
+  await expect(page.locator('.scene-notice')).toContainText('WebGL 2 não está disponível')
+  await expect(page.locator('.navigator-2d')).toBeVisible()
+  await expect(page.locator('canvas')).toHaveCount(0)
 })
 
-test('movimento reduzido e captura permitem reproduzir o loop deterministicamente', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'reduce' })
-  await openReady(page, '?capture=1&t=0')
-  const canvas = page.locator('canvas')
-  const first = await canvas.screenshot()
-  await page.evaluate(() => window.__seek?.(8))
-  await page.waitForTimeout(150)
-  const last = await canvas.screenshot()
-  expect(first.equals(last)).toBe(true)
-  await page.screenshot({ path: `${shots}/captura-reduced-motion.png`, fullPage: true })
+test('a amostra documenta proveniência, licença, limites e integridade do modelo', async ({ page }) => {
+  const modelPath = new URL('../public/data/atlas-modelo-v021-20261120.json', import.meta.url)
+  const modelBytes = await readFile(modelPath)
+  const actualHash = createHash('sha256').update(modelBytes).digest('hex')
+  expect(actualHash).toBe(EDITORIAL_MANIFEST.compatibility.modelSha256)
+
+  await openProtocol(page)
+  await page.getByRole('button', { name: 'Fontes e método' }).click()
+  await expect(page.getByRole('heading', { name: 'Fontes e método' })).toBeVisible()
+  await expect(page.locator('.sources-page')).toContainText('CC BY 4.0')
+  await expect(page.locator('.sources-page')).toContainText('documento + versão + seção + intervalo de linhas')
+  await expect(page.locator('.sources-page')).toContainText('15 diretos, 24 parciais e 62 lacunas')
+  await expect(page.locator('.sources-page')).toContainText('r12–r16, r22 e r33')
+  await expect(page.locator('canvas')).toHaveCount(0)
 })
 
-test('falha de validação bloqueia todo o conteúdo parcial', async ({ page }) => {
+test('um JSON estrutural alterado é rejeitado antes de renderizar conteúdo parcial', async ({ page }) => {
   await page.route('**/data/atlas-modelo-v021-20261120.json', async (route) => {
     const response = await route.fetch()
-    const model = await response.json()
-    delete model.itens[0].extenso
-    await route.fulfill({ response, json: model })
+    const raw = await response.text()
+    const tampered = raw.replace('"versao_modelo": "0.2.1"', '"versao_modelo": "0.2.2"')
+    await route.fulfill({ response, body: tampered })
   })
   await page.goto('/')
   await expect(page.getByRole('heading', { name: 'Não foi possível carregar o Atlas' })).toBeVisible()
-  await expect(page.locator('.state-page code')).toContainText('campo obrigatório ausente')
-  await expect(page.locator('.atlas-layout')).toHaveCount(0)
+  await expect(page.locator('.state-page code')).toContainText('SHA-256 do modelo estrutural')
+  await expect(page.locator('.protocol-page')).toHaveCount(0)
   await expect(page.locator('.navigator-2d')).toHaveCount(0)
 })
 
-test('sonda de desempenho registra estatísticas reais do renderizador', async ({ page }) => {
-  await openReady(page)
-  await page.waitForFunction(() => Boolean(window.__ATLAS_STATS__), { timeout: 15_000 })
-  const stats = await page.evaluate(() => window.__ATLAS_STATS__)
-  expect(stats?.drawCalls).toBeGreaterThan(0)
-  expect(stats?.triangles).toBeGreaterThan(0)
-  expect(stats?.fps).toBeGreaterThan(0)
-  console.log('ATLAS_STATS', JSON.stringify(stats))
+test('mobile mantém busca, acordeões e navegação sem rolagem horizontal', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 })
+  await openProtocol(page)
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+
+  const transition = page.locator('.protocol-subarea').filter({ hasText: 'Transição criptográfica' })
+  await expect(transition).toHaveAttribute('open', '')
+  const subareaSummary = transition.locator('summary')
+  await subareaSummary.focus()
+  await page.keyboard.press('Enter')
+  await expect(transition).not.toHaveAttribute('open', '')
+  await page.keyboard.press('Enter')
+  await expect(transition).toHaveAttribute('open', '')
+
+  await transition.locator('.protocol-item').filter({ hasText: 'Criptografia pós-quântica' }).locator('summary').click()
+  await expect(transition).toContainText('Agilidade e inventário')
+  await page.getByRole('searchbox', { name: 'Buscar nas posições, subáreas, itens e texto editorial' }).fill('LGPD')
+  await expect(page.locator('.search-results')).toContainText('LGPD')
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
 })
